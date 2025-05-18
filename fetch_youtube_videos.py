@@ -30,9 +30,9 @@ def fetch_youtube_data(api_key, channel_id):
                     "id": video_id,
                     "title": title,
                     "description": description,
-                    "embed": f"https://www.youtube.com/embed/{video_id}",
                     "year": year,
                     "month": month,
+                    "publishedAt": date,
                     "category": "Bible"
                 }
 
@@ -50,6 +50,8 @@ def main():
 
     print("Fetching videos...")
     videos = fetch_youtube_data(api_key, channel_id)
+
+    videos.sort(key=lambda video: video["publishedAt"], reverse=True)
 
     with open('videos.json', 'w', encoding='utf-8') as f:
         json.dump({"videos": videos}, f, indent=2, ensure_ascii=False)
