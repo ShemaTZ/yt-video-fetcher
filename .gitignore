@@ -1,0 +1,12 @@
+# Virtual environment
+env/
+
+# Python bytecode cache
+__pycache__/
+
+# API key files (if you use .env or store keys in a text file)
+*.env
+*.txt
+
+# JSON output
+videos.json
